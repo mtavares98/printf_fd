@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:44:42 by mtavares          #+#    #+#             */
-/*   Updated: 2022/06/08 15:44:32 by mtavares         ###   ########.fr       */
+/*   Updated: 2022/06/08 15:50:42 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static int	format(const char *str, t_info *info, va_list *args)
 	return (0);
 }
 
-int	ft_printf(int fd, const char *str, ...)
+int	printf_fd(int fd, const char *str, ...)
 {
 	va_list		args;
 	t_info		info;

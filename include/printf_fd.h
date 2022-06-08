@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:46:10 by mtavares          #+#    #+#             */
-/*   Updated: 2022/06/08 15:24:49 by mtavares         ###   ########.fr       */
+/*   Updated: 2022/06/08 15:50:57 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ struct s_info
 	size_t		counter;
 };
 
-int		ft_printf(int fd, const char *str, ...);
+int		printf_fd(int fd, const char *str, ...);
 
 #endif
