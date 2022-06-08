@@ -6,11 +6,12 @@
 /*   By: mtavares <mtavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:44:42 by mtavares          #+#    #+#             */
-/*   Updated: 2022/06/08 15:50:42 by mtavares         ###   ########.fr       */
+/*   Updated: 2022/06/08 16:10:25 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf_fd.h"
+#include <limits.h>
 
 static int	putstr(char *str, char c, int is_char, t_info *info)
 {
@@ -36,13 +37,15 @@ static int	putnbr_b(t_lu n, char *str, int numdig, t_info *info)
 
 static int	treat_int(int n, char *str, int numdig, t_info *info)
 {
-	long long	signal;
+	int		nb;
+	long	signal;
 
+	nb = n;
 	signal = 1;
-	if (n < 0)
+	if (nb < 0)
 		putstr(0, '-', CHAR, info);
-	signal = n * ((n > 0) - (n < 0));
-	return ((n < 0) + putnbr_b(signal, str, numdig, info));
+	signal = ((nb > 0) - (nb < 0));
+	return ((n < 0) + putnbr_b(nb * signal, str, numdig, info));
 }
 
 static int	format(const char *str, t_info *info, va_list *args)
@@ -86,11 +89,19 @@ int	printf_fd(int fd, const char *str, ...)
 	while (str[info.i])
 	{
 		if (str[info.i] == '%')
+		{
+			info.i++;
 			info.counter += format(str, &info, &args);
+		}
 		else
 			info.counter += putstr(0, str[info.i], CHAR, &info);
 		info.i++;
 	}
 	va_end(args);
 	return (info.counter);
+}
+
+int	main(void)
+{
+	printf_fd(1, "%i\n", printf_fd(1, "%i\n", INT_MIN));
 }
