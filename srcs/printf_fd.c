@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:44:42 by mtavares          #+#    #+#             */
-/*   Updated: 2022/06/08 16:10:25 by mtavares         ###   ########.fr       */
+/*   Updated: 2022/06/08 16:24:46 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,4 @@ int	printf_fd(int fd, const char *str, ...)
 	}
 	va_end(args);
 	return (info.counter);
-}
-
-int	main(void)
-{
-	printf_fd(1, "%i\n", printf_fd(1, "%i\n", INT_MIN));
 }
